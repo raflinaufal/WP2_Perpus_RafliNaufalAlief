@@ -1,5 +1,4 @@
 <div class="container-fluid">
-	<center>
 		<table>
 			<tr>
 				<td>
@@ -7,9 +6,9 @@
 						<table class="table table-bordered table-striped table-hover" id="table-datatable">
 							<tr>
 								<th>No Pinjam</th>
-								<th>Tanggal Pinjam</th>
 								<th>ID User</th>
 								<th>ID Buku</th>
+								<th>Tanggal Pinjam</th>
 								<th>Tanggal Kembali</th>
 								<th>Tanggal Pengembalian</th>
 								<th>Terlambat</th>
@@ -24,9 +23,9 @@
 							?>
 								<tr>
 									<td><?= $p['no_pinjam']; ?></td>
-									<td><?= $p['tgl_pinjam']; ?></td>
 									<td><?= $p['id_user']; ?></td>
 									<td><?= $p['id_buku']; ?></td>
+									<td><?= $p['tgl_pinjam']; ?></td>
 									<td><?= $p['tgl_kembali']; ?></td>
 									<td>
 										<?= date('Y-m-d'); ?>
@@ -71,5 +70,4 @@
 				</td>
 			</tr>
 		</table>
-	</center>
 </div>

@@ -1,47 +1,58 @@
-<div class="x_panel" align="center">
-    <div class="x_content">
-        <div class="row">
-            <div class="col-sm-3 col-md-3">
-                <div class="thumbnail" style="height: auto; position: relative; left: 100%; width: 200%;">
-                    <img src="<?php echo base_url(); ?>assets/img/upload/<?= $gambar; ?>" style="max-width:100%; max-height: 100%; height: 150px; width: 120px">
-                    <div class="caption">
-                        <h5 style="min-height:40px;" align="center"><?= $pengarang ?></h5>
-                        <center>
-                            <table class="table table-stripped">
-                                <tr>
-                                    <th nowrap>Judul Buku: </th>
-                                    <td nowrap><?= $judul; ?></td>
-                                    <td>&nbsp;</td>
-                                    <th>Kategori: </th>
-                                    <td><?= $kategori ?></td>
-                                </tr>
-                                <tr>
-                                    <th nowrap>Penerbit: </th>
-                                    <td><?= $penerbit ?></td>
-                                    <td>&nbsp;</td>
-                                    <th>Dipinjam: </th>
-                                    <td><?= $dipinjam ?></td>
-                                </tr>
-                                <tr>
-                                    <th nowrap>Tahun Terbit: </th>
-                                    <td><?= substr($tahun, 0, 4) ?></td>
-                                    <td>&nbsp;</td>
-                                    <th>Dibooking: </th>
-                                    <td><?= $dibooking ?></td>
-                                </tr>
-                                <tr>
-                                    <th>ISBN: </th>
-                                    <td><?= $isbn ?></td>
-                                    <td>&nbsp;</td>
-                                    <th>Tersedia: </th>
-                                    <td><?= $stok ?></td>
-                                </tr>
-                            </table>
-                        </center>
-                        <p>
-                            <a class="btn btn-outline-primary fas fw fa-shopping-cart" href="<?= base_url('booking/tambahBooking/' . $id); ?>"> Booking</a>
-                            <span class="btn btn-outline-secondary fas fw fa-reply" onclick="window.history.go(-1)"> Kembali</span>
-                        </p>
+<div class="container-fluid">
+    <div class="">
+        <div class="">
+            <div class="p-3 bg-white rounded d-flex flex-wrap align-items-start"> <!-- Mengubah align-items-center menjadi align-items-start -->
+                <div class="me-3 px-3 flex-grow-1 flex-md-grow-0">
+                    <img src="<?= base_url(); ?>assets/img/upload/<?= $gambar; ?>" class="img-fluid rounded" alt="Book Image" style="height: 300px; width: 100%; object-fit: cover;"> <!-- Menyesuaikan tinggi gambar -->
+                </div>
+                <div class="flex-grow-1">
+                     <table class="table table-bordered">
+                        <tbody>
+                            <tr class="bg-primary text-white">
+                                <th  scope="row">Pengarang</th>
+                                <td><?= $pengarang ?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Judul Buku</th>
+                                <td><?= $judul; ?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Kategori</th>
+                                <td><?= $kategori ?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Penerbit</th>
+                                <td><?= $penerbit ?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Dipinjam</th>
+                                <td><?= $dipinjam ?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Tahun Terbit</th>
+                                <td><?= substr($tahun, 0, 4) ?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Dibooking</th>
+                                <td><?= $dibooking ?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">ISBN</th>
+                                <td><?= $isbn ?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Tersedia</th>
+                                <td><?= $stok ?></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="text-center pt-3 px-4">
+                        <a href="<?= base_url('booking/tambahBooking/' . $id); ?>" class="btn btn-outline-primary px-3">
+                            <i class="fas fa-shopping-cart"></i> Booking
+                        </a>
+                        <button class="btn btn-outline-secondary" onclick="window.history.go(-1)">
+                            <i class="fas fa-reply"></i> Kembali
+                        </button>
                     </div>
                 </div>
             </div>

@@ -55,12 +55,12 @@
             <span>Laporan Data Buku</span>
         </a>
     </li>
-    <li class="nav-item <?= ($judul == 'Daftar Booking') ? 'active' : null ?>">
+    <!-- <li class="nav-item <?= ($judul == 'Daftar Booking') ? 'active' : null ?>">
         <a href="<?= base_url('laporan/laporan_anggota') ?>" class="nav-link pb-0">
             <i class="fa fa-fw fa-address-book"></i>
             <span>Laporan Data Anggota</span>
         </a>
-    </li>
+    </li> -->
     <li class="nav-item <?= ($judul == 'Daftar Booking') ? 'active' : null ?>">
         <a href="<?= base_url('laporan/laporan_pinjam') ?>" class="nav-link pb-0">
             <i class="fa fa-fw fa-address-book"></i>
