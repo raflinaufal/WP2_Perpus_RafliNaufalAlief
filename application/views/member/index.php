@@ -1,5 +1,5 @@
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container-fluid mt-3">
     <div class="row">
         <div class="col-lg-6 justify-content-x"> 
             <?= $this->session->flashdata('pesan'); ?> 

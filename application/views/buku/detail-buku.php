@@ -2,7 +2,7 @@
     <div class="">
         <div class="">
             <div class="p-3 bg-white rounded d-flex flex-wrap align-items-start"> <!-- Mengubah align-items-center menjadi align-items-start -->
-                <div class="me-3 px-3 flex-grow-1 flex-md-grow-0">
+                <div class="me-3 px-3 flex-grow-1 flex-md-grow-0 mb-3">
                     <img src="<?= base_url(); ?>assets/img/upload/<?= $gambar; ?>" class="img-fluid rounded" alt="Book Image" style="height: 300px; width: 100%; object-fit: cover;"> <!-- Menyesuaikan tinggi gambar -->
                 </div>
                 <div class="flex-grow-1">

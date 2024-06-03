@@ -93,7 +93,7 @@ class Member extends CI_Controller
         $this->load->view('templates/templates-user/header', $data);
         $this->load->view('member/index', $data);
         $this->load->view('templates/templates-user/modal');
-        $this->load->view('templates/templates-user/footer', $data);
+        // $this->load->view('templates/templates-user/footer', $data);
     }
 
 public function ubahProfil()
@@ -119,7 +119,7 @@ public function ubahProfil()
         $this->load->view('templates/templates-user/header', $data);
         $this->load->view('member/ubah-anggota', $data);
         $this->load->view('templates/templates-user/modal');
-        $this->load->view('templates/templates-user/footer', $data);
+        // $this->load->view('templates/templates-user/footer', $data);
     } else {
         // Jika validasi berhasil, proses data
         $nama = $this->input->post('nama', true);

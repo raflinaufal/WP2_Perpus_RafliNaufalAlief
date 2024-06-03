@@ -1,4 +1,4 @@
-<div class="">
+<div class="mt-3">
     <?php foreach ($useraktif as $u) { ?>
         <p class="mb-2">Terima Kasih <b><?= $u->nama; ?></b></p>
         <p class="mb-4">Buku yang ingin Anda Pinjam adalah sebagai berikut:</p>

@@ -38,7 +38,7 @@ class Booking extends CI_Controller
 		$this->load->view('templates/templates-user/header', $data);
 		$this->load->view('booking/data-booking', $data);
 		$this->load->view('templates/templates-user/modal');
-		$this->load->view('templates/templates-user/footer');
+		// $this->load->view('templates/templates-user/footer');
 	}
 
 	public function tambahBooking()
@@ -143,7 +143,7 @@ class Booking extends CI_Controller
 		$this->load->view('templates/templates-user/header', $data);
 		$this->load->view('booking/info-booking', $data);
 		$this->load->view('templates/templates-user/modal');
-		$this->load->view('templates/templates-user/footer');
+		// $this->load->view('templates/templates-user/footer');
 	}
 
 
