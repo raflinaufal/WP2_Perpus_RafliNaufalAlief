@@ -16,6 +16,7 @@ class Pinjam extends CI_Controller
 		$data['judul'] = "Data Pinjam";
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
 		$data['pinjam'] = $this->ModelPinjam->joinData();
+		// var_dump($data['pinjam']);exit;
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
@@ -87,17 +88,39 @@ class Pinjam extends CI_Controller
 	}
 
 	public function ubahStatus()
-	{
-		$id_buku = $this->uri->segment(3);
-		$no_pinjam = $this->uri->segment(4);
-		$where = ['id_buku' => $this->uri->segment(3),];
-		$tgl = date('Y-m-d');
-		$status = 'Kembali';
-		//update status menjadi kembali pada saat buku dikembalikan
-		$this->db->query("UPDATE pinjam, detail_pinjam SET pinjam.status='$status', pinjam.tgl_pengembalian='$tgl' WHERE detail_pinjam.id_buku='$id_buku' AND pinjam.no_pinjam='$no_pinjam'");
-		//update stok dan dipinjam pada tabel buku
-		$this->db->query("UPDATE buku, detail_pinjam SET buku.dipinjam=buku.dipinjam-1, buku.stok=buku.stok+1 WHERE buku.id=detail_pinjam.id_buku");
-		$this->session->set_flashdata('pesan', '<div class="laert alert-message alert-success" role="alert"></div>');
-		redirect(base_url('pinjam'));
-	}
+{
+    $id_buku = $this->uri->segment(3);
+    $no_pinjam = $this->uri->segment(4);
+    $tgl = date('Y-m-d');
+    $status = 'Kembali';
+
+    // Mulai transaksi untuk memastikan konsistensi data
+    $this->db->trans_start();
+
+    // Update status menjadi 'Kembali' pada tabel pinjam dan tanggal pengembalian
+    $this->db->set('status', $status);
+    $this->db->set('tgl_pengembalian', $tgl);
+    $this->db->where('no_pinjam', $no_pinjam);
+    $this->db->update('pinjam');
+
+    // Update stok dan dipinjam pada tabel buku
+    $this->db->set('dipinjam', 'dipinjam-1', FALSE);
+    $this->db->set('stok', 'stok+1', FALSE);
+    $this->db->where('id', $id_buku);
+    $this->db->update('buku');
+
+    // Selesaikan transaksi
+    $this->db->trans_complete();
+
+    if ($this->db->trans_status() === FALSE) {
+        // Jika terjadi kesalahan, rollback transaksi dan set pesan error
+        $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Gagal mengubah status buku. Silakan coba lagi.</div>');
+    } else {
+        // Jika tidak ada kesalahan, commit transaksi dan set pesan sukses
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Status buku berhasil diubah menjadi kembali.</div>');
+    }
+
+    redirect(base_url('pinjam'));
+}
+
 }

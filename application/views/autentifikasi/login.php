@@ -11,7 +11,14 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb4">Halaman Login!!</h1>
                                 </div>
-                                <?= $this->session->flashdata('pesan'); ?>
+								<?php if ($message = $this->session->flashdata('pesan')): ?>
+						<div class="alert alert-info alert-dismissible fade show" role="alert">
+							<?= $message; ?>
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+					<?php endif; ?>
                                 <form class="user" method="post" action="<?= base_url('autentifikasi'); ?>">
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user" value="<?= set_value('email'); ?>" id="email" placeholder="Masukkan Alamat Email" name="email">

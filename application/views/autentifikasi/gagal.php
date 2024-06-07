@@ -26,7 +26,15 @@
                 <div class="container-fluid mt-5">
                     <!-- 404 Error Text -->
                     <div class="text-center">
-                        <?= $this->session->flashdata('pesan'); ?>
+					<?php if ($message = $this->session->flashdata('pesan')): ?>
+						<div class="alert alert-info alert-dismissible fade show" role="alert">
+							<?= $message; ?>
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+					<?php endif; ?>
+
                         <a href="<?= base_url('autentifikasi'); ?>" class="btn btn-secondary ">&larr; Close </a>
                     </div>
                 </div>
